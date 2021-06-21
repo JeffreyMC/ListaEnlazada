@@ -78,28 +78,43 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnNumero">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ingresar n&#xfa;mero entero"/>
+        <Property name="text" type="java.lang.String" value="Insertar elemento"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNumeroActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnExtraer">
       <Properties>
         <Property name="text" type="java.lang.String" value="Extraer elemento"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExtraerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnMostrarElemento">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mostrar elemento (indicar &#xed;ndice)"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarElementoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnColaVacia">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xbf;La cola est&#xe1; vac&#xed;a?"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnColaVaciaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTamanioCola">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tama&#xf1;o actual de la cola"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTamanioColaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnMostrarCola">
       <Properties>
@@ -110,11 +125,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Vaciar cola"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVaciarColaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSalir">
       <Properties>
         <Property name="text" type="java.lang.String" value="SALIR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

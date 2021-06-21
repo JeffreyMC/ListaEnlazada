@@ -5,17 +5,26 @@
  */
 package listaenlazada.proyecto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jeffrey
  */
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    //variable global de la clase funciones
+    Funciones fn = new Funciones();
+    
     public Principal() {
         initComponents();
+        setLocationRelativeTo(null);
+        
+        //se inhabilitan los botones correspondientes
+        btnExtraer.setEnabled(false);
+        btnMostrarElemento.setEnabled(false);
+        btnVaciarCola.setEnabled(false);
+        btnMostrarCola.setEnabled(false);
     }
 
     /**
@@ -43,21 +52,56 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("LISTA ENLAZADA");
 
-        btnNumero.setText("Ingresar número entero");
+        btnNumero.setText("Insertar elemento");
+        btnNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNumeroActionPerformed(evt);
+            }
+        });
 
         btnExtraer.setText("Extraer elemento");
+        btnExtraer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExtraerActionPerformed(evt);
+            }
+        });
 
         btnMostrarElemento.setText("Mostrar elemento (indicar índice)");
+        btnMostrarElemento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarElementoActionPerformed(evt);
+            }
+        });
 
         btnColaVacia.setText("¿La cola está vacía?");
+        btnColaVacia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnColaVaciaActionPerformed(evt);
+            }
+        });
 
         btnTamanioCola.setText("Tamaño actual de la cola");
+        btnTamanioCola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTamanioColaActionPerformed(evt);
+            }
+        });
 
         btnMostrarCola.setText("Mostrar todos los elementos");
 
         btnVaciarCola.setText("Vaciar cola");
+        btnVaciarCola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVaciarColaActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("SALIR");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,6 +148,116 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNumeroActionPerformed
+        try{
+            String num = JOptionPane.showInputDialog(null, "Por favor ingrese un número entero", "Ingreso número entero",
+                 JOptionPane.QUESTION_MESSAGE);
+            
+            //se convierte a entero
+            int numero = Integer.parseInt(num);
+            
+            //inserta el elemento en la cola
+            fn.insertar(numero);
+            
+            //se habilitan los botones correspondientes
+            btnExtraer.setEnabled(true);
+            btnMostrarElemento.setEnabled(true);
+            btnVaciarCola.setEnabled(true);
+            btnMostrarCola.setEnabled(true);
+
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese solo NÚMEROS enteros. Intente de nuevo");
+        }
+    }//GEN-LAST:event_btnNumeroActionPerformed
+
+    private void btnMostrarElementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarElementoActionPerformed
+         try{
+            String num = JOptionPane.showInputDialog(null, "Por favor digite el índice del número a mostrar", "Ingreso número entero",
+                 JOptionPane.QUESTION_MESSAGE);
+            
+            //se convierte a entero
+            int numero = Integer.parseInt(num);
+            
+            //inserta el elemento en la cola
+            String dato = fn.mostrarEn(numero);
+            fn.mostrarTodos();
+            
+            if(dato != null)
+                JOptionPane.showMessageDialog(null, "El valor del índice consultado es: " + dato);
+            else
+                JOptionPane.showMessageDialog(null, "No existen datos en el índice consultado");
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese solo NÚMEROS enteros. Intente de nuevo");
+        }
+    }//GEN-LAST:event_btnMostrarElementoActionPerformed
+
+    private void btnExtraerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExtraerActionPerformed
+         try{
+            String num = JOptionPane.showInputDialog(null, "Por favor digite el índice del número a eliminar", "Ingreso número entero",
+                 JOptionPane.QUESTION_MESSAGE);
+            
+            //se convierte a entero
+            int numero = Integer.parseInt(num);
+            
+            //inserta el elemento en la cola
+            String dato = fn.eliminar(numero);
+            fn.mostrarTodos();
+            
+            if(dato != null)
+                JOptionPane.showMessageDialog(null, "El valor del índice eliminado es: " + dato);
+            else
+                JOptionPane.showMessageDialog(null, "No existen datos en el índice consultado");
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese solo NÚMEROS enteros. Intente de nuevo");
+        }
+    }//GEN-LAST:event_btnExtraerActionPerformed
+
+    private void btnVaciarColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVaciarColaActionPerformed
+        //se eliminan todos los elementos de la cola
+        fn.borrarCola();
+        JOptionPane.showMessageDialog(null, "Se ha vaciado la cola éxitosamente");
+        
+        //se inhabilitan los botones correspondientes
+        btnExtraer.setEnabled(false);
+        btnMostrarElemento.setEnabled(false);
+        btnVaciarCola.setEnabled(false);
+        btnMostrarCola.setEnabled(false);
+        
+    }//GEN-LAST:event_btnVaciarColaActionPerformed
+
+    private void btnTamanioColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTamanioColaActionPerformed
+        int tamanio = fn.tamanioCola();
+        
+        JOptionPane.showMessageDialog(null, "El tamaño de la cola es de " + tamanio);
+    }//GEN-LAST:event_btnTamanioColaActionPerformed
+
+    private void btnColaVaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColaVaciaActionPerformed
+        
+        int tamanio = fn.tamanioCola();
+        
+        if(tamanio == 0)
+            JOptionPane.showMessageDialog(null, "La cola está vacía");
+        else
+            JOptionPane.showMessageDialog(null, "La cola NO está vacía");
+        
+        
+    }//GEN-LAST:event_btnColaVaciaActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        
+        Object[] opciones = {"SÍ", "NO"};
+        Object defecto = opciones[1];
+        
+         int opcion = JOptionPane.showOptionDialog(null, "¿Está seguro de que desea salir?", "Advertencia",
+                JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null, opciones, defecto);
+         
+         if(opcion == 0)
+             this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -115,7 +269,7 @@ public class Principal extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
