@@ -26,5 +26,7 @@ El programa cuenta con las siguientes opciones:
 
 ## Capturas
 
-![Menu principal](Menu.PNG)
+![Menu principal](MENU.PNG)
+
+
 
