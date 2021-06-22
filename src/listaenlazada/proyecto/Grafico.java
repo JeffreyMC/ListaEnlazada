@@ -36,6 +36,7 @@ public class Grafico extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 formComponentResized(evt);
@@ -55,19 +56,19 @@ public class Grafico extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel2))
+                        .addGap(487, 487, 487)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(377, 377, 377)
-                        .addComponent(jLabel1)))
-                .addContainerGap(418, Short.MAX_VALUE))
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel2)))
+                .addContainerGap(545, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(121, Short.MAX_VALUE)
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(107, 107, 107)
+                .addGap(105, 105, 105)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
@@ -84,7 +85,7 @@ public class Grafico extends javax.swing.JFrame {
             super.paint(g);
             
             int rectX = 40;
-            int stringX = 70;
+            int stringX = 60;
             int lineX = 110;
             int lineY = 140;
             //fuente
