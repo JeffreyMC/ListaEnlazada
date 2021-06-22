@@ -30,3 +30,7 @@ El programa cuenta con las siguientes opciones:
 
 
 
+**Gráfico**
+
+![Lista enlazada](Lista.PNG)
+
