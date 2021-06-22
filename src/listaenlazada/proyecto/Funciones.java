@@ -14,15 +14,17 @@ public class Funciones {
   public void insertar(int data)
   {
     Nodo nodo = new Nodo();
-    nodo.data = data;
-    nodo.siguiente = null;
+    nodo.data = data; //se le pasa la info al nodo
+    nodo.siguiente = null; //queda apuntando hacia un nodo null
     
+    //si la raiz es nula, el nuevo dato va a ser la raíz
     if(head == null)
     {
       head = nodo;
     }
     else
     {
+      //se pasa el nuevo dato al nodo que esté apuntando a null
       Nodo n = head;
       while(n.siguiente != null)
       {
@@ -35,25 +37,29 @@ public class Funciones {
   //método para borrar un elemento
   public String eliminar(int index)
   {
+    //si el índice es 0, el nodo siguiente pasa a ser la raíz
     if(index == 0)
     {
       head = head.siguiente;
     }
     else
     {
-      Nodo n = head;
-      Nodo n1 = null;
+      Nodo nodo = head; //raiz
+      Nodo nodoEliminar = null;
+      
+      //se recorre la lista de nodos
       for(int i=0;i<index-1;i++)
       {
-        n = n.siguiente;
+        nodo = nodo.siguiente;
       }
-      n1 = n.siguiente;
-      n.siguiente = n1.siguiente;
+      //se busca el nodo que está antes del que queremos eliminar
+      //luego lo ponemos a apuntar al nodo después del que queremos eliminar
+      nodoEliminar = nodo.siguiente;
+      nodo.siguiente = nodoEliminar.siguiente;
       
-      return String.valueOf(n1.data);
-      //System.out.println("n1" + n1.data);
+      return String.valueOf(nodoEliminar.data);
     }
-    
+    //si el índice no existe retorna null
     return null;
   }
   
@@ -76,6 +82,7 @@ public class Funciones {
     Nodo nodo = head;
     int contador = 1;
     
+    //recorre todos los nodos hasta coincidir conel índice
     while(nodo.siguiente != null)
     {
       if(contador == indice){
@@ -85,6 +92,7 @@ public class Funciones {
        contador++;
     }
     
+    //si el índice es 0 se muestra el nodo respectivo
     if(indice == 0)
         return String.valueOf(head.data);
     
@@ -96,6 +104,7 @@ public class Funciones {
   public void borrarCola(){
       Nodo nodoRespaldo = null;
       
+      //se recorre nodo por nodo y se le asigna el valor null
       while(head != null){
           nodoRespaldo = head.siguiente;
           head = null;
@@ -113,7 +122,7 @@ public class Funciones {
     }
     
     int contador = 1;
-    
+    //recorre cada nodo y suma al contador por cada uno de estos
     while(nodo.siguiente != null)
     {
       nodo = nodo.siguiente;

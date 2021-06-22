@@ -5,8 +5,6 @@
  */
 package listaenlazada.proyecto;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import javax.swing.JOptionPane;
 
 /**
@@ -266,9 +264,9 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnMostrarColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarColaActionPerformed
+        //se llama a la clase que pinta los nodos
         Grafico grafico = new Grafico(fn.head);
-        grafico.setVisible(true);
-        
+        grafico.setVisible(true);   
     }//GEN-LAST:event_btnMostrarColaActionPerformed
     
 

@@ -16,7 +16,8 @@ import java.awt.Graphics;
  */
 public class Grafico extends javax.swing.JFrame {
 
-    Nodo nodo;
+    Nodo nodo; //nodo que se va a pasar para recorrerlo y dibujarlo
+    
     public Grafico(Nodo nodo) {
         this.nodo = nodo;
         initComponents();
@@ -80,7 +81,7 @@ public class Grafico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formComponentResized
     
-    
+        //método que dibuja la lista
       public void paint(Graphics g){
             super.paint(g);
             
@@ -94,7 +95,11 @@ public class Grafico extends javax.swing.JFrame {
             g.setColor(Color.BLACK);
             g.drawRect(rectX, 60, 70, 70);
             g.drawString(String.valueOf(nodo.data), stringX, 100);
-            g.drawLine(lineX, 95,lineY, 95);
+            
+            //si no hay siguiente nodo, no se dibuja la línea
+            if(nodo.siguiente != null)
+              g.drawLine(lineX, 95,lineY, 95);  
+            
             
             while(nodo.siguiente != null){
                 rectX = rectX+100;
@@ -103,9 +108,14 @@ public class Grafico extends javax.swing.JFrame {
                 lineY = lineY+100;
                 
                 g.setColor(Color.BLACK);
+                //medidas y ubicación del rectángulo
                 g.drawRect(rectX, 60, 70, 70);
+                //ubicación del dato que va dentro del cuadro
                 g.drawString(String.valueOf(nodo.siguiente.data), stringX, 100);
-                g.drawLine(lineX, 95,lineY, 95);
+                
+                //si no hay nodo siguiente no se dibuja la línea
+                if(nodo.siguiente.siguiente != null)
+                    g.drawLine(lineX, 95,lineY, 95); 
                 
                 nodo = nodo.siguiente;
             }
