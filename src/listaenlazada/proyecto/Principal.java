@@ -5,6 +5,8 @@
  */
 package listaenlazada.proyecto;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import javax.swing.JOptionPane;
 
 /**
@@ -88,6 +90,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         btnMostrarCola.setText("Mostrar todos los elementos");
+        btnMostrarCola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarColaActionPerformed(evt);
+            }
+        });
 
         btnVaciarCola.setText("Vaciar cola");
         btnVaciarCola.addActionListener(new java.awt.event.ActionListener() {
@@ -257,6 +264,13 @@ public class Principal extends javax.swing.JFrame {
          if(opcion == 0)
              this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnMostrarColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarColaActionPerformed
+        Grafico grafico = new Grafico(fn.head);
+        grafico.setVisible(true);
+        
+    }//GEN-LAST:event_btnMostrarColaActionPerformed
+    
 
     /**
      * @param args the command line arguments

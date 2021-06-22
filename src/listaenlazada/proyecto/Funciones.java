@@ -13,22 +13,22 @@ public class Funciones {
   //método para insertar un nuevo elemento
   public void insertar(int data)
   {
-    Nodo node=new Nodo();
-    node.data=data;
-    node.siguiente=null;
+    Nodo nodo = new Nodo();
+    nodo.data = data;
+    nodo.siguiente = null;
     
-    if(head==null)
+    if(head == null)
     {
-      head=node;
+      head = nodo;
     }
     else
     {
-      Nodo n=head;
-      while(n.siguiente!=null)
+      Nodo n = head;
+      while(n.siguiente != null)
       {
-        n=n.siguiente;
+        n = n.siguiente;
       }
-      n.siguiente=node;
+      n.siguiente = nodo;
     }   
   }
   
@@ -60,14 +60,14 @@ public class Funciones {
   //método para mostrar todos los elementos
   public void mostrarTodos()
   {
-    Nodo node = head;
+    Nodo nodo = head;
     
-    while(node.siguiente != null)
+    while(nodo.siguiente != null)
     {
-      System.out.println(node.data);
-      node = node.siguiente;
+      System.out.println(nodo.data);
+      nodo = nodo.siguiente;
     }
-    System.out.println(node.data);
+    System.out.println(nodo.data);
   }
   
   //MOSTRAR ELEMENTO DEL ÍNDICE INDICADO
@@ -122,4 +122,5 @@ public class Funciones {
     
     return contador;
   }
+  
 }
