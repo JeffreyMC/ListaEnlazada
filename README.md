@@ -1,3 +1,6 @@
+![Twitter Follow](https://img.shields.io/twitter/follow/JeffreyMC16?style=social)
+https://img.shields.io/github/license/JeffreyMC/ListaEnlazada
+
 # Lista enlazada mediante 
 
 Este proyecto crea una cola utilizando una lista enlazada, es decir, con nodos donde cada uno
