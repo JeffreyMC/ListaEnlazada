@@ -186,7 +186,6 @@ public class Principal extends javax.swing.JFrame {
             
             //inserta el elemento en la cola
             String dato = fn.mostrarEn(numero);
-            fn.mostrarTodos();
             
             if(dato != null)
                 JOptionPane.showMessageDialog(null, "El valor del índice consultado es: " + dato);
@@ -206,9 +205,8 @@ public class Principal extends javax.swing.JFrame {
             //se convierte a entero
             int numero = Integer.parseInt(num);
             
-            //inserta el elemento en la cola
+            //elimina el elemento en la cola
             String dato = fn.eliminar(numero);
-            fn.mostrarTodos();
             
             if(dato != null)
                 JOptionPane.showMessageDialog(null, "El valor del índice eliminado es: " + dato);

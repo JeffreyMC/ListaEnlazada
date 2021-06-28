@@ -85,41 +85,50 @@ public class Grafico extends javax.swing.JFrame {
       public void paint(Graphics g){
             super.paint(g);
             
+            //coordenadas de los cuadros y líneas
             int rectX = 40;
             int stringX = 60;
-            int lineX = 110;
-            int lineY = 140;
+            int lineX = 140;
+            int lineNodoX = 110;
+            int lineNodoY = 200;
             //fuente
             g.setFont(new Font("default", Font.BOLD, 16));
             
             g.setColor(Color.BLACK);
-            g.drawRect(rectX, 60, 70, 70);
+            g.drawRect(rectX, 60, 70, 70); //cuadro de dato
+            //nodo apuntador
+            g.drawRect(lineNodoX, 60, 70, 70);
+            //dato que mostrará el nodo
             g.drawString(String.valueOf(nodo.data), stringX, 100);
             
             //si no hay siguiente nodo, no se dibuja la línea
             if(nodo.siguiente != null)
-              g.drawLine(lineX, 95,lineY, 95);  
+              g.drawLine(lineX, 95,lineNodoY, 95);  
             
             
             while(nodo.siguiente != null){
-                rectX = rectX+100;
-                stringX = stringX+100;
-                lineX = lineX+100;
-                lineY = lineY+100;
+                rectX += 170;   //se aumentan los valores para cambiar las coordenadas
+                stringX += 170;
+                lineX += 170;
+                lineNodoX += 170;
+                lineNodoY += 170;
                 
                 g.setColor(Color.BLACK);
                 //medidas y ubicación del rectángulo
                 g.drawRect(rectX, 60, 70, 70);
+                //nodo apuntador
+                g.drawRect(lineNodoX, 60, 70, 70);
                 //ubicación del dato que va dentro del cuadro
                 g.drawString(String.valueOf(nodo.siguiente.data), stringX, 100);
                 
                 //si no hay nodo siguiente no se dibuja la línea
                 if(nodo.siguiente.siguiente != null)
-                    g.drawLine(lineX, 95,lineY, 95); 
+                    g.drawLine(lineX, 95,lineNodoY, 95); 
                 
                 nodo = nodo.siguiente;
             }
-    }
+        }
+    
     /**
      * @param args the command line arguments
      */
