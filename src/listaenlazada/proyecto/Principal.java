@@ -154,30 +154,38 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNumeroActionPerformed
-        try{
-            String num = JOptionPane.showInputDialog(null, "Por favor ingrese un número entero", "Ingreso número entero",
-                 JOptionPane.QUESTION_MESSAGE);
-            
-            //se convierte a entero
-            int numero = Integer.parseInt(num);
-            
-            //inserta el elemento en la cola
-            fn.insertar(numero);
-            
-            //se habilitan los botones correspondientes
-            btnExtraer.setEnabled(true);
-            btnMostrarElemento.setEnabled(true);
-            btnVaciarCola.setEnabled(true);
-            btnMostrarCola.setEnabled(true);
+        if (fn.tamanioCola() == 10) {
+            JOptionPane.showMessageDialog(null, "La cola está en su máxima capacidad");
+        } else {
+            try {
+                String num = JOptionPane.showInputDialog(null, "Por favor ingrese un número entero", "Ingreso número entero",
+                        JOptionPane.QUESTION_MESSAGE);
 
+                //se convierte a entero
+                int numero = Integer.parseInt(num);
+
+                //inserta el elemento en la cola
+                fn.insertar(numero);
+
+                //se habilitan los botones correspondientes
+                btnExtraer.setEnabled(true);
+                btnMostrarElemento.setEnabled(true);
+                btnVaciarCola.setEnabled(true);
+                btnMostrarCola.setEnabled(true);
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Por favor ingrese solo NÚMEROS enteros. Intente de nuevo");
+            }
         }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese solo NÚMEROS enteros. Intente de nuevo");
-        }
+        
     }//GEN-LAST:event_btnNumeroActionPerformed
 
     private void btnMostrarElementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarElementoActionPerformed
-         try{
+        if(fn.tamanioCola() == 0){
+            JOptionPane.showMessageDialog(null, "No quedan elementos en la cola");
+        }
+        else{
+            try{
             String num = JOptionPane.showInputDialog(null, "Por favor digite el índice del número a mostrar", "Ingreso número entero",
                  JOptionPane.QUESTION_MESSAGE);
             
@@ -194,28 +202,21 @@ public class Principal extends javax.swing.JFrame {
         }
         catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Por favor ingrese solo NÚMEROS enteros. Intente de nuevo");
+        } 
         }
+       
     }//GEN-LAST:event_btnMostrarElementoActionPerformed
 
     private void btnExtraerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExtraerActionPerformed
-         try{
-            String num = JOptionPane.showInputDialog(null, "Por favor digite el índice del número a eliminar", "Ingreso número entero",
-                 JOptionPane.QUESTION_MESSAGE);
+           //elimina el elemento en la cola
             
-            //se convierte a entero
-            int numero = Integer.parseInt(num);
-            
-            //elimina el elemento en la cola
-            String dato = fn.eliminar(numero);
-            
-            if(dato != null)
-                JOptionPane.showMessageDialog(null, "El valor del índice eliminado es: " + dato);
-            else
-                JOptionPane.showMessageDialog(null, "No existen datos en el índice consultado");
-        }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese solo NÚMEROS enteros. Intente de nuevo");
-        }
+            if(fn.tamanioCola() == 0)
+                JOptionPane.showMessageDialog(null, "No quedan elementos en la cola");
+            else{
+                 String dato = fn.eliminar();
+                 JOptionPane.showMessageDialog(null, "El valor eliminado es: " + dato);
+            }
+                
     }//GEN-LAST:event_btnExtraerActionPerformed
 
     private void btnVaciarColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVaciarColaActionPerformed
@@ -262,9 +263,15 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnMostrarColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarColaActionPerformed
-        //se llama a la clase que pinta los nodos
-        Grafico grafico = new Grafico(fn.head);
-        grafico.setVisible(true);   
+        
+        if(fn.tamanioCola() == 0)
+            JOptionPane.showMessageDialog(null, "No quedan elementos en la cola");
+        else{
+            //se llama a la clase que pinta los nodos
+            Grafico grafico = new Grafico(fn.head);
+            grafico.setVisible(true); 
+        }
+          
     }//GEN-LAST:event_btnMostrarColaActionPerformed
     
 

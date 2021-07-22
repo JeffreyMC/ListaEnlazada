@@ -35,40 +35,16 @@ public class Funciones {
   }
   
   //método para borrar un elemento
-  public String eliminar(int index)
+  public String eliminar()
   {
     //Nodo temporal que albargará el nodo a eliminar
       Nodo nodoEliminar = null;
-
-    //si el índice es 0, el nodo siguiente pasa a ser la raíz
-    if(index == 0)
-    {
       nodoEliminar = head; //se obtiene el nodo a eliminar para retornarlo
       head = head.siguiente;
       return String.valueOf(nodoEliminar.data);
-    }
-    else
-    {
-      Nodo nodo = head; //raiz
-      
-      try{
-          //se recorre la lista de nodos
-          for (int i = 0; i < index - 1; i++) {
-              nodo = nodo.siguiente;
-          }
-          //se busca el nodo que está antes del que queremos eliminar
-          //luego lo ponemos a apuntar al nodo después del que queremos eliminar
-          nodoEliminar = nodo.siguiente;
-          nodo.siguiente = nodoEliminar.siguiente;
-          //devuelve el nodo con el valor a eliminar
-          return String.valueOf(nodoEliminar.data);
-      }
-      catch(Exception e){
-          return null; //si el índice no existe devuelve null
-      }
-      
-    }
+    
   }
+  
   
 //  //método para mostrar todos los elementos - DEBUGGING
 //  public void mostrarTodos()

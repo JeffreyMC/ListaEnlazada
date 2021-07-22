@@ -60,16 +60,16 @@ public class Grafico extends javax.swing.JFrame {
                         .addGap(487, 487, 487)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
+                        .addGap(43, 43, 43)
                         .addComponent(jLabel2)))
                 .addContainerGap(545, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
+                .addGap(91, 91, 91)
                 .addComponent(jLabel2)
-                .addGap(105, 105, 105)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
@@ -88,42 +88,42 @@ public class Grafico extends javax.swing.JFrame {
             //coordenadas de los cuadros y líneas
             int rectX = 40;
             int stringX = 60;
-            int lineX = 140;
-            int lineNodoX = 110;
-            int lineNodoY = 200;
+            int lineX = 105;
+            int lineNodoX = 90;
+            int lineNodoY = 150;
             //fuente
-            g.setFont(new Font("default", Font.BOLD, 16));
+            g.setFont(new Font("default", Font.BOLD, 11));
             
             g.setColor(Color.BLACK);
-            g.drawRect(rectX, 60, 70, 70); //cuadro de dato
+            g.drawRect(rectX, 40, 50, 50); //cuadro de dato
             //nodo apuntador
-            g.drawRect(lineNodoX, 60, 70, 70);
+            g.drawRect(lineNodoX, 40, 30, 50);
             //dato que mostrará el nodo
-            g.drawString(String.valueOf(nodo.data), stringX, 100);
+            g.drawString(String.valueOf(nodo.data), stringX, 70);
             
             //si no hay siguiente nodo, no se dibuja la línea
             if(nodo.siguiente != null)
-              g.drawLine(lineX, 95,lineNodoY, 95);  
+              g.drawLine(lineX, 65,lineNodoY, 65);  
             
             
             while(nodo.siguiente != null){
-                rectX += 170;   //se aumentan los valores para cambiar las coordenadas
-                stringX += 170;
-                lineX += 170;
-                lineNodoX += 170;
-                lineNodoY += 170;
+                rectX += 110;   //se aumentan los valores para cambiar las coordenadas
+                stringX += 110;
+                lineX += 110;
+                lineNodoX += 110;
+                lineNodoY += 110;
                 
                 g.setColor(Color.BLACK);
                 //medidas y ubicación del rectángulo
-                g.drawRect(rectX, 60, 70, 70);
+                g.drawRect(rectX, 40, 50, 50);
                 //nodo apuntador
-                g.drawRect(lineNodoX, 60, 70, 70);
+                g.drawRect(lineNodoX, 40, 30, 50);
                 //ubicación del dato que va dentro del cuadro
-                g.drawString(String.valueOf(nodo.siguiente.data), stringX, 100);
+                g.drawString(String.valueOf(nodo.siguiente.data), stringX, 70);
                 
                 //si no hay nodo siguiente no se dibuja la línea
                 if(nodo.siguiente.siguiente != null)
-                    g.drawLine(lineX, 95,lineNodoY, 95); 
+                    g.drawLine(lineX, 65,lineNodoY, 65); 
                 
                 nodo = nodo.siguiente;
             }

@@ -1,6 +1,6 @@
 # Lista enlazada mediante 
 
-Este proyecto crea una cola utilizando una lista enlazada, es decir, con nodos donde cada uno
+Este proyecto crea una cola utilizando una lista enlazada tipo FIFO, es decir, con nodos donde cada uno
 tiene un elemento con la información y otro con un puntero al siguiente elemento. La
 información de cada elemento es un número entero positivo o negativo.
 
